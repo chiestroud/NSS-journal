@@ -8,4 +8,3 @@ const loginButton = () => {
 };
 
 export default loginButton;
-
