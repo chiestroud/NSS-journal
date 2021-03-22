@@ -7,3 +7,23 @@ body {
   text-align: center;
   margin-top: 100px;
 }
+
+#auth-button {
+  margin-left: auto;
+}
+
+#main {
+  display: flex;
+  flex-wrap: wrap;
+}
+.card {
+  height: 28rem;
+  margin: 10px;
+  min-width: 30%;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
