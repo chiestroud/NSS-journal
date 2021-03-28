@@ -17,7 +17,7 @@ const navbarBuilder = () => {
           <a class="nav-link" href="#" id="mar-link">Mar</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" id="mar-link">Disabled</a>
+          <a class="nav-link" href="#" id="mar-link">April</a>
         </li>
       </ul>
       <div id="auth-button"></div>
