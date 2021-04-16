@@ -1,5 +1,14 @@
 const marchBuilder = (array) => {
-  document.querySelector('#header').innerHTML = '<h1>March 2021 Journal</h1>';
+  document.querySelector('#header').innerHTML = `
+  <h1> March 2021 Journal</h1>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Sort By
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" id="sortByDate" href="#">Date</a>
+    </div>
+  </div>`;
   document.querySelector('#main').innerHTML = '';
   array.forEach((march) => {
     const domString = `
