@@ -1,6 +1,8 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import { getApril } from '../../helpers/data/aprilData';
 import getMarch from '../../helpers/data/marchData';
+import aprilBuilder from '../form/april';
 import februaryBuilder from '../form/february';
 import januaryBuilder from '../form/january';
 import marchBuilder from '../form/march';
@@ -16,6 +18,9 @@ const navEvents = (id) => {
     } else {
       getMarch(id).then((marchArray) => marchReadOnlyBuilder(marchArray));
     }
+  });
+  document.querySelector('#apr-link').addEventListener('click', () => {
+    getApril(id).then((array) => aprilBuilder(array));
   });
 };
 
