@@ -1,3 +1,4 @@
+import domEvents from '../events/domEvents';
 import navEvents from '../events/navEvents';
 import domBuilder from '../form/domBuilder';
 import navbarBuilder from '../form/navbar';
@@ -13,6 +14,7 @@ const startApp = (user) => {
     loginButton();
   }
   navEvents();
+  domEvents();
 };
 
 export default startApp;
