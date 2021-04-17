@@ -2,6 +2,7 @@ const domBuilder = () => {
   document.querySelector('#app').innerHTML = `
   <div id="navigation"></div>
   <div id="header"></div>
+  <div id="edit-form-container"></div>
   <div id="main" class="container d-flex justify-content-around"></div>`;
 };
 
