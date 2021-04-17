@@ -10,6 +10,12 @@ const getApril = () => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 
+const getSingleApril = (firebaseKey) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/april/${firebaseKey}.json`)
+    .then((response) => resolve(response.data))
+    .catch((error) => reject(error));
+});
+
 const addApril = (aprObj, id) => new Promise((resolve, reject) => {
   axios.post(`${dbUrl}/april.json`, aprObj)
     .then((response) => {
@@ -19,4 +25,15 @@ const addApril = (aprObj, id) => new Promise((resolve, reject) => {
     }).catch((error) => reject(error));
 });
 
-export { getApril, addApril };
+const updateApril = (firebaseKey, aprObj) => new Promise((resolve, reject) => {
+  axios.patch(`${dbUrl}/april/${firebaseKey}.json`, aprObj)
+    .then(() => getApril()).then((aprilArray) => resolve(aprilArray))
+    .catch((error) => reject(error));
+});
+
+export {
+  getApril,
+  addApril,
+  getSingleApril,
+  updateApril
+};

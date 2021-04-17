@@ -1,9 +1,11 @@
 import firebase from 'firebase/app';
-import { addApril } from '../../helpers/data/aprilData';
+import { addApril, getSingleApril, updateApril } from '../../helpers/data/aprilData';
 import getMarch from '../../helpers/data/marchData';
 import aprilBuilder from '../form/april';
 import aprilAddJournal from '../form/aprilDisplay';
+import editAprilForm from '../form/editApril';
 import marchBuilder from '../form/march';
+import baseModal from '../form/modal';
 import marchReadOnlyBuilder from '../readOnlyForm/marchBuilderReadOnly';
 
 const domEvents = (id) => {
@@ -35,6 +37,23 @@ const domEvents = (id) => {
         notes: document.querySelector('#april-notes').value
       };
       addApril(obj).then((array) => aprilBuilder(array));
+    }
+    if (e.target.id.includes('update-apr-btn')) {
+      const firebaseKey = e.target.id.split('--')[1];
+      e.preventDefault();
+      baseModal('Edit Journal');
+      getSingleApril(firebaseKey).then((response) => editAprilForm(response));
+      $('#formModal').modal('toggle');
+    }
+    if (e.target.id.includes('update-apr-journal')) {
+      const firebaseKey = e.target.id.split('--')[1];
+      e.preventDefault();
+      const aprObj = {
+        date: document.querySelector('#update-apr-date').value,
+        notes: document.querySelector('#update-april-notes').value
+      };
+      updateApril(firebaseKey, aprObj).then((aprilArray) => aprilBuilder(aprilArray));
+      $('#formModal').modal('toggle');
     }
   });
 };
